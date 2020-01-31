@@ -2,6 +2,7 @@ const core = require('@actions/core')
 const github = require('@actions/github')
 
 async function run() {
+  console.log('vashe ochko na barabane2')
   try {
     const title = github.context.payload.pull_request.title
     console.log("ochko ilyi na barabane")

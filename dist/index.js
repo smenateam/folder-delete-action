@@ -461,6 +461,7 @@ const core = __webpack_require__(470)
 const github = __webpack_require__(469)
 
 async function run() {
+  console.log('vashe ochko na barabane2')
   try {
     const title = github.context.payload.pull_request.title
     console.log("ochko ilyi na barabane")
