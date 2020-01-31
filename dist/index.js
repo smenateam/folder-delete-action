@@ -469,7 +469,7 @@ async function run() {
       const regex = new RegExp(/^([A-Z]+-\d+)/)
       const taskName = title.match(regex)[1]
       console.log('vashe ochko na barabane', taskName)
-      core.setOutput('taskname', taskName)
+      core.exportVariable('taskname', taskName)
     }
   } catch (error) {
     core.setFailed(error.message)
