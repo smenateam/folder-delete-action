@@ -1,13 +1,9 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
-inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
-    required: true
-    default: '1000'
+name: 'remove folder frontend'
+description: ''
+author: 'SMENA'
 outputs:
-  time: # output will be available to future steps 
-    description: 'The message to output'
+  taskname: # id of output
+    description: 'Youtrack name id'
 runs:
   using: 'node12'
   main: 'dist/index.js'

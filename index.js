@@ -1,21 +1,16 @@
-const core = require('@actions/core');
-const wait = require('./wait');
+const core = require('@actions/core')
+const github = require('@actions/github')
 
-
-// most @actions toolkit packages have async methods
 async function run() {
-  try { 
-    const ms = core.getInput('milliseconds');
-    console.log(`Waiting ${ms} milliseconds ...`)
-
-    core.debug((new Date()).toTimeString())
-    wait(parseInt(ms));
-    core.debug((new Date()).toTimeString())
-
-    core.setOutput('time', new Date().toTimeString());
-  } 
-  catch (error) {
-    core.setFailed(error.message);
+  try {
+    const title = github.context.payload.pull_request.title
+    if (title) {
+      const regex = new RegExp(/^([A-Z]+-\d+)/)
+      const taskName = title.match(regex)[1]
+      core.setOutput('taskname', taskName)
+    }
+  } catch (error) {
+    core.setFailed(error.message)
   }
 }
 
