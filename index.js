@@ -7,7 +7,7 @@ async function run() {
     if (title) {
       const regex = new RegExp(/^([A-Z]+-\d+)/);
       const taskName = title.match(regex)[1];
-      core.exportVariable("taskname", taskName);
+      core.exportVariable("TASK_NAME", taskName);
     }
   } catch (error) {
     core.setFailed(error.message);
